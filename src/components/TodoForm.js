@@ -3,6 +3,10 @@ import React, { useState } from "react";
 function TodoForm(props) {
   const [input, setInput] = useState("");
 
+  const handleChange = (e) => {
+    setInput(e.target.value);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -14,13 +18,10 @@ function TodoForm(props) {
     setInput(""); // when the submit button is clicked, we clear the input field
   };
 
-  const handleChange = (e) => {
-    setInput(e.target.value);
-  };
-
   return (
     <form className="todo-form" onSubmit={handleSubmit}>
       <input
+        className="todo-input"
         type="text"
         placeholder="Add a Todo"
         value={input}
